@@ -1,4 +1,9 @@
+using BW_1_S4_L1.Helpers;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// inizializzare database
+DbHelper.InitializeDatabase();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
