@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +23,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BW-1 S4-L1\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BW-1 S4-L1\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEkAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T14:09:51.003Z",
+              "EditorCaption": ""
             }
           ]
         }
