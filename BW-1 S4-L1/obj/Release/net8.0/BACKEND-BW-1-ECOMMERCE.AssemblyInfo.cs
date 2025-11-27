@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("BACKEND-BW-1-ECOMMERCE")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4a746c4b6a7b62e945672a772b27613b1fdfb1a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BACKEND-BW-1-ECOMMERCE")]
