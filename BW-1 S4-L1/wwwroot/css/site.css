@@ -1,0 +1,72 @@
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+h4, h5, h6, p {
+    margin: 0;
+}
+
+a:hover {
+    color: #000;
+}
+
+.custom-font {
+    font-family: "Oswald", sans-serif;
+}
+
+.nav-text-size {
+    font-size: 12px;
+}
+
+.carousel-image {
+    object-fit: cover;
+    object-position: 80% 13%;
+    height: 40rem;
+}
+
+nav {
+    z-index: 10;
+}
+
+    nav a {
+        transition: offset .6s ease;
+    }
+
+        nav a:hover {
+            text-decoration: underline;
+            text-underline-offset: 7px;
+        }
+
+.footer-text-size {
+    font-size: 14px;
+}
+
+.footer-flex-width {
+    flex: 0 0 17rem;
+}
+
+.footer-bg-color {
+    background-color: #F8F9FA;
+}
+
+
+.font-wight-500 {
+    font-weight: 500;
+}
+
+.object-fit {
+    object-fit: contain;
+}
+
+.static-cards-color {
+    background-color: #F6CCD0;
+}
+
+.bg-thead {
+    background-color: #D8AB00;
+}
+
+.bg-btn-backOffice {
+    background-color: #D8AB00;
+}

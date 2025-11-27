@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "BACKEND-BW-1-ECOMMERCE/1.0.0": {
+        "runtime": {
+          "BACKEND-BW-1-ECOMMERCE.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BACKEND-BW-1-ECOMMERCE/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

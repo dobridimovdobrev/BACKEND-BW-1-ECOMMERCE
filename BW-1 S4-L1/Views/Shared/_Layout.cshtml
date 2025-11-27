@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BACKEND_BW_1_ECOMMERCE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BACKEND_BW_1_ECOMMERCE.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="https://img.pikbest.com/png-images/20241110/classic-fashion-logo-design-for-apparel_11077248.png!bw700" width="80" alt="Logo" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2">
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="Index" class="nav-link text-dark text-uppercase fw-semibold fs-4 custom-font active" aria-current="page">Home</a>
+                        </li>
+
+
+                    </ul>
+                    <div class="d-flex gap-2">
+                        <div class="d-flex align-items-center gap-3">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-headphones" viewBox="0 0 16 16">
+                                <path d="M8 3a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a6 6 0 1 1 12 0v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V8a5 5 0 0 0-5-5" />
+                            </svg>
+
+                            <div class="d-flex flex-column">
+                                <span class="nav-text-size">CALL US NOW</span>
+                                <span class="fw-bold">+011 5827918</span>
+                            </div>
+                        </div>
+                        <a class="btn" type="submit" asp-controller="BackOffice" asp-action="BackOffice">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person-circle text-dark" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                        </a>
+                        <a class="btn" type="submit" asp-controller="Carrello" asp-action="Carrello">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-bag-heart text-dark" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        @* carousel *@
+        <div class="container-fluid p-0">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <img src="https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?q=80&w=1198&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100 carousel-image" alt="women ecommerce">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Casual Hat Look</h5>
+                            <p>
+                                Minimalist elegance in soft cotton.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="https://plus.unsplash.com/premium_photo-1725914368919-7d127bd09393?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fHw%3D" class="d-block w-100 carousel-image" alt="sweatshirt">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Minimal Sweatshirt</h5>
+                            <p>
+                                Oversize Urban Street T-shirt - Electric Blue
+                                Description: Authentic streetwear style with exclusive graphics.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1724184888128-a9967d0542ad?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100 carousel-image" alt="jacket">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Blue Graphic T-shirt</h5>
+                            <p>Premium fabric and refined details for total comfort.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1606163015973-94cbba1e27e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D" class="d-block w-100 carousel-image" alt="jacket">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Air Force Sneaker</h5>
+                            <p>
+                                Caramel Edition
+                                Description: Classic reimagined in warm tones.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://plus.unsplash.com/premium_photo-1702742528357-cd38620a47c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fHBhbnRhbG9uaSUyMG9yaXp6b250YWxlfGVufDB8fDB8fHww" class="d-block w-100 carousel-image" alt="jacket">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Beige Polo Sweatshirt</h5>
+                            <p>The basic piece that transforms your everyday look.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    @* main *@
+    <div class="container">
+        <main role="main" class="pb-3">
+
+
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer">
+        <div class="w-100 footer-bg-color">
+            <div class="container d-flex justify-content-between py-3">
+                @* contact info *@
+                <div>
+                    <h2 class="fs-5 text-uppercase mb-4">Contact Info</h2>
+                    <div>
+                        <span class="font-wight-500 text-uppercase">Address</span>
+                        <p class="text-muted">123 Street Name, City, Australia</p>
+                    </div>
+                    <div>
+                        <span class="font-wight-500 text-uppercase">Phone</span>
+                        <p class="text-muted">Toll Free (123) 472-796</p>
+                    </div>
+                    <div>
+                        <span class="font-wight-500 text-uppercase">Email</span>
+                        <p class="text-muted">mail@example.coma</p>
+                    </div>
+                    <div>
+                        <span class="font-wight-500 text-uppercase">Working days</span>
+                        <p class="text-muted">Mon - FRI / 9:30 AM - 6:30 PM</p>
+                    </div>
+
+                </div>
+                @* categories *@
+                <div>
+                    <h2 class="fs-5 text-uppercase mb-4">Categories</h2>
+                    <div class="d-flex flex-column gap-1">
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span> Jeans</span>
+                        </a>
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span> T-Shirts</span>
+                        </a>
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span> Sports</span>
+                        </a>
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span> Shirts & Tops</span>
+                        </a>
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span> Clogs & Mules</span>
+                        </a>
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span>  Sunglasses</span>
+                        </a>
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span>  Bags & Wallets</span>
+                        </a>
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span> Sneakers & Athletic</span>
+                        </a>
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span> Electronis</span>
+                        </a>
+                        <a href="#" class="d-flex gap-2 text-muted">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </span>
+                            <span> Furniture</span>
+                        </a>
+
+
+                    </div>
+                </div>
+                @* popular tags *@
+                <div class="footer-flex-width">
+                    <h2 class="fs-5 fw-semibold text-uppercase mb-4">Popular Tags</h2>
+                    <div class="d-flex gap-2 text-uppercase flex-wrap">
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Cloths</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Electronics</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Furniture</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Sports</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Men wear</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Women wear</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Laptops</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Formal shirts</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Top wear</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Headphones</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Bottom wear</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Bags</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Sofa</a>
+                        <a href="#" class="btn btn-outline-dark border-1 footer-text-size rounded-0 py-1 px-3">Shoes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <p class="m-0">&copy; 2025 All Rights Reserved - Eagle Shop</p>
+                <div class="d-flex gap-2">
+                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/icons/visa.png" class="border rounded-2 object-fit p-2" width="80" alt="visa" />
+                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/icons/paypal.png" class="border rounded-2 object-fit p-2" width="80" alt="paypal" />
+                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/icons/mastercard.png" class="border rounded-2 object-fit p-2" width="80" alt="mastercard" />
+                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/icons/american-express.png" class="border rounded-2 object-fit p-2" width="80" alt="express" />
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
