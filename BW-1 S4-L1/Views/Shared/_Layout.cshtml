@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BACKEND_BW_1_ECOMMERCE</title>
+    <title>@ViewData["Title"] - SHOP ECOMMERCE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -21,11 +21,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2">
+                        @* Home *@
                         <li class="nav-item">
                             <a asp-controller="Home" asp-action="Index" class="nav-link text-dark text-uppercase fw-semibold fs-4 custom-font active" aria-current="page">Home</a>
                         </li>
-
-
                     </ul>
                     <div class="d-flex gap-2">
                         <div class="d-flex align-items-center gap-3">
@@ -39,13 +38,15 @@
                                 <span class="fw-bold">+011 5827918</span>
                             </div>
                         </div>
-                        <a class="btn" type="submit" asp-controller="BackOffice" asp-action="BackOffice">
+                        @* Backoffice *@
+                        <a class="btn" asp-controller="BackOffice" asp-action="Index">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person-circle text-dark" viewBox="0 0 16 16">
                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                             </svg>
                         </a>
-                        <a class="btn" type="submit" asp-controller="Carrello" asp-action="Carrello">
+                        @* Carello *@
+                        <a class="btn" asp-controller="Carrello" asp-action="Index">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-bag-heart text-dark" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
                             </svg>
@@ -122,10 +123,8 @@
         </div>
     </header>
     @* main *@
-    <div class="container">
+    <div class="container min-vh-100">
         <main role="main" class="pb-3">
-
-
             @RenderBody()
         </main>
     </div>

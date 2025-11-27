@@ -4,7 +4,7 @@ namespace BACKEND_BW_1_ECOMMERCE.Controllers
 {
     public class CarrelloController : Controller
     {
-        public IActionResult Carrello()
+        public IActionResult Index()
         {
             return View();
         }

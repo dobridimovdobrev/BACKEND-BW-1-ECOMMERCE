@@ -24,16 +24,16 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja09mZmljZVxBZGRQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Dobri/Documents/GitHub/BACKEND-BW-1-ECOMMERCE/BW-1 S4-L1/Views/BackOffice/BackOffice.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja09mZmljZVxCYWNrT2ZmaWNlLmNzaHRtbA==
+[C:/Users/Dobri/Documents/GitHub/BACKEND-BW-1-ECOMMERCE/BW-1 S4-L1/Views/BackOffice/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja09mZmljZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Dobri/Documents/GitHub/BACKEND-BW-1-ECOMMERCE/BW-1 S4-L1/Views/BackOffice/Modify.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja09mZmljZVxNb2RpZnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Dobri/Documents/GitHub/BACKEND-BW-1-ECOMMERCE/BW-1 S4-L1/Views/Carrello/Carrello.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FycmVsbG9cQ2FycmVsbG8uY3NodG1s
+[C:/Users/Dobri/Documents/GitHub/BACKEND-BW-1-ECOMMERCE/BW-1 S4-L1/Views/Carrello/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FycmVsbG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Dobri/Documents/GitHub/BACKEND-BW-1-ECOMMERCE/BW-1 S4-L1/Views/Home/Index.cshtml]

@@ -4,7 +4,7 @@ namespace BACKEND_BW_1_ECOMMERCE.Controllers
 {
     public class BackOfficeController : Controller
     {
-        public IActionResult BackOffice()
+        public IActionResult Index()
         {
             return View();
         }
