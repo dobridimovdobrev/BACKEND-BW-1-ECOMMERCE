@@ -12,5 +12,6 @@ namespace BACKEND_BW_1_ECOMMERCE.Controllers
             return View();
         }
 
+
     }
 }

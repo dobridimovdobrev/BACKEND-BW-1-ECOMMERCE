@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rebec\\source\\repos\\BW-1 S4-L1\\BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj": {}
+    "C:\\Users\\rebec\\Desktop\\epicode BACK-END\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rebec\\source\\repos\\BW-1 S4-L1\\BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj": {
+    "C:\\Users\\rebec\\Desktop\\epicode BACK-END\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rebec\\source\\repos\\BW-1 S4-L1\\BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj",
+        "projectUniqueName": "C:\\Users\\rebec\\Desktop\\epicode BACK-END\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj",
         "projectName": "BACKEND-BW-1-ECOMMERCE",
-        "projectPath": "C:\\Users\\rebec\\source\\repos\\BW-1 S4-L1\\BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj",
+        "projectPath": "C:\\Users\\rebec\\Desktop\\epicode BACK-END\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj",
         "packagesPath": "C:\\Users\\rebec\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rebec\\source\\repos\\BW-1 S4-L1\\BW-1 S4-L1\\obj\\",
+        "outputPath": "C:\\Users\\rebec\\Desktop\\epicode BACK-END\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.1.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

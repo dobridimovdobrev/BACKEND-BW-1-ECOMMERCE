@@ -1,4 +1,13 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\BW-1 S4-L1",
+    "\\BW-1 S4-L1\\Controllers",
+    "\\BW-1 S4-L1\\Views",
+    "\\BW-1 S4-L1\\Views\\BackOffice",
+    "\\BW-1 S4-L1\\Views\\Carrello",
+    "\\BW-1 S4-L1\\Views\\Shared"
+  ],
+  "SelectedNode": "\\BACKEND-BW-1-ECOMMERCE.sln",
   "PreviewInSolutionExplorer": false
 }
