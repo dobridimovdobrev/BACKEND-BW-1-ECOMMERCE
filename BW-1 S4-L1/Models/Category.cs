@@ -5,5 +5,7 @@
         public int IdCategory { get; set; }
         public string Name { get; set; }
 
+        //relazioni molti a motli
+        public List<Product> Products { get; set; }
     }
 }

@@ -8,14 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Helpers\**" />
     <Compile Remove="ViewModels\**" />
-    <Content Remove="Helpers\**" />
     <Content Remove="ViewModels\**" />
-    <EmbeddedResource Remove="Helpers\**" />
     <EmbeddedResource Remove="ViewModels\**" />
-    <None Remove="Helpers\**" />
     <None Remove="ViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
   </ItemGroup>
 
 </Project>

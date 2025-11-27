@@ -7,5 +7,8 @@
         public int Quantity { get; set; }
         public string Size { get; set; }
         public DateTime Date { get; set; }
+
+        //relazioni uno a molti
+        public Product Product { get; set; }
     }
 }
