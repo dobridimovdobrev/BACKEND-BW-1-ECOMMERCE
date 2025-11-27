@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using BW_1_S4_L1.Helpers.Enums;
+using Microsoft.Data.SqlClient;
 
 namespace BW_1_S4_L1.Helpers
 {
@@ -34,7 +35,7 @@ namespace BW_1_S4_L1.Helpers
             }
             catch (SqlException ex)
             {
-                if (ex.Number == 1801)
+                if (ex.Number == (int)ECodiceErroreDB.DatabaseEsistente)
                 {
                     Console.WriteLine("Database already exists.");
                 }
@@ -52,6 +53,8 @@ namespace BW_1_S4_L1.Helpers
             }
         }
 
+
+        //CREAZIONE TABELLE
         private static void CreateTable()
         {
             using var connection = new SqlConnection(_ShopConnectionString);
@@ -95,7 +98,7 @@ namespace BW_1_S4_L1.Helpers
             }
             catch (SqlException ex)
             {
-                if (ex.Number == 2714)
+                if (ex.Number == (int)ECodiceErroreDB.TabellaEsistente)
                 {
                     Console.WriteLine("Table already exsisting");
                 }
