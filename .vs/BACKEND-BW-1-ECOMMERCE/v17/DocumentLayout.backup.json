@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\backoffice\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\backoffice\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\backoffice\\modify.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\backoffice\\modify.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\backoffice\\addproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\backoffice\\addproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\controllers\\backofficecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,12 +31,12 @@
       "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\controllers\\carrellocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\carrello\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\carrello\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\carrello\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\carrello\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\models\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,14 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|c:\\users\\dobri\\documents\\github\\backend-bw-1-ecommerce\\bw-1 s4-l1\\views\\backoffice\\addproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8B49987-C902-44D7-8EFC-843C51AE5EE5}|BW-1 S4-L1\\BACKEND-BW-1-ECOMMERCE.csproj|solutionrelative:bw-1 s4-l1\\views\\backoffice\\addproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,7 +66,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "BW-1 S4-L1\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "BW-1 S4-L1\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-27T17:19:29.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "CarrelloController.cs",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Controllers\\CarrelloController.cs",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Controllers\\CarrelloController.cs",
@@ -70,12 +86,11 @@
               "RelativeToolTip": "BW-1 S4-L1\\Controllers\\CarrelloController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T16:38:56.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T16:38:56.877Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "BackOfficeController.cs",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Controllers\\BackOfficeController.cs",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Controllers\\BackOfficeController.cs",
@@ -83,12 +98,11 @@
               "RelativeToolTip": "BW-1 S4-L1\\Controllers\\BackOfficeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T16:38:38.41Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T16:38:38.41Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Categories.cs",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Models\\Categories.cs",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Models\\Categories.cs",
@@ -96,12 +110,11 @@
               "RelativeToolTip": "BW-1 S4-L1\\Models\\Categories.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T16:28:41.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T16:28:41.059Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Models\\Product.cs",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Models\\Product.cs",
@@ -109,12 +122,11 @@
               "RelativeToolTip": "BW-1 S4-L1\\Models\\Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T16:01:07.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T16:01:07.179Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\Carrello\\Index.cshtml",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Views\\Carrello\\Index.cshtml",
@@ -122,12 +134,11 @@
               "RelativeToolTip": "BW-1 S4-L1\\Views\\Carrello\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-27T15:58:27.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T15:58:27.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Modify.cshtml",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\BackOffice\\Modify.cshtml",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Views\\BackOffice\\Modify.cshtml",
@@ -135,25 +146,23 @@
               "RelativeToolTip": "BW-1 S4-L1\\Views\\BackOffice\\Modify.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-27T15:58:26.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T15:58:26.096Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\BackOffice\\Index.cshtml",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Views\\BackOffice\\Index.cshtml",
               "ToolTip": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\BackOffice\\Index.cshtml",
               "RelativeToolTip": "BW-1 S4-L1\\Views\\BackOffice\\Index.cshtml",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAqwFwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-27T15:58:24.811Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T15:58:24.811Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "AddProduct.cshtml",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\BackOffice\\AddProduct.cshtml",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Views\\BackOffice\\AddProduct.cshtml",
@@ -161,31 +170,29 @@
               "RelativeToolTip": "BW-1 S4-L1\\Views\\BackOffice\\AddProduct.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-27T15:58:21.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T15:58:21.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "BW-1 S4-L1\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAGgAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-27T14:32:50.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T14:32:50.189Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BW-1 S4-L1\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\Dobri\\Documents\\GitHub\\BACKEND-BW-1-ECOMMERCE\\BW-1 S4-L1\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "BW-1 S4-L1\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAgwDAAAABUAAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAH4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-27T14:09:51.003Z",
               "EditorCaption": ""
