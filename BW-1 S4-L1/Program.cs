@@ -1,9 +1,16 @@
+using BW_1_S4_L1.Helpers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    DbHelpers.InitializeDatabase();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
