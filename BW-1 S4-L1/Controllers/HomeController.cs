@@ -8,20 +8,30 @@ namespace BW_1_S4_L1.Controllers
     public class HomeController : Controller
     {
 
-        public IActionResult Index(int? categoryId)
+        public IActionResult Index(int? categoryId, int page = 1)
         {
-            List<Product> products;
+            int pageSize = 20;
+            List<Product> allProducts;
 
             if (categoryId.HasValue)
             {
-                products = DbHelper.GetProductsByCategory(categoryId.Value);
+                allProducts = DbHelper.GetProductsByCategory(categoryId.Value);
+                ViewBag.CategoryId = categoryId.Value;
             }
             else
             {
-                products = DbHelper.GetAllProducts();
+                allProducts = DbHelper.GetAllProducts();
             }
 
-            return View(products);
+            int totalProducts = allProducts.Count;
+            var productsToShow = allProducts
+                .Take(page * pageSize)
+                .ToList();
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalProducts = totalProducts;
+
+            return View(productsToShow);
         }
 
     }

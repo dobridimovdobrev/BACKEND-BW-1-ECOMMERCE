@@ -4,7 +4,7 @@
     ViewData["Title"] = "Carrello";
 }
 
-<h1 class="text-center my-3 text-uppercase title-line-center">Il tuo carrello</h1>
+<h1 class="fs-2 custom-font my-5 text-uppercase">Your Carrello</h1>
 
 @if (Model.Count == 0)
 {
@@ -64,7 +64,7 @@ else
 
             <div class="d-flex justify-content-between mb-2">
                 <p class="fw-bold mb-0">Spedizione:</p>
-                <p class="mb-0">€@spedizione.ToString("F2")</p>
+                <p class="mb-0">Gratis</p>
             </div>
 
             <hr />
@@ -73,8 +73,6 @@ else
                 <p class="fw-bold fs-5 mb-0">Totale:</p>
                 <p class="fw-bold fs-5 mb-0">€@totale.ToString("F2")</p>
             </div>
-
-            <button class="btn btn-primary btn-lg w-100 mt-3">Procedi all'acquisto</button>
         </div>
     </div>
 }

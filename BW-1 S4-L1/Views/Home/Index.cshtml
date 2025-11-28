@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    int pageSize = 20;
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int totalProducts = ViewBag.TotalProducts ?? 0;
+    bool hasMore = (currentPage * pageSize) < totalProducts;
 }
 
 @* static cards top *@
@@ -94,22 +98,24 @@
 </div>
 @* product cards *@
 <div class="container">
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between align-items-center">
         <h2 class="text-uppercase fs-4 fw-bold custom-font featured-title-center my-5">Featured products</h2>
-        <div class="d-flex justify-content-end gap-3">
-            <a asp-action="Index" class="category-btn">Tutti</a>
-            <a asp-action="Index" asp-route-categoryId="1" class="category-btn">Uomini</a>
-            <a asp-action="Index" asp-route-categoryId="2" class="category-btn">Donne</a>
-            <a asp-action="Index" asp-route-categoryId="3" class="category-btn">Bambini</a>
+        <div class="d-flex justify-content-end custom-font fs-5 gap-3">
+            <a asp-action="Index" class="filter-products">Tutti</a>
+            <a asp-action="Index" asp-route-categoryId="1" class="filter-products">Uomini</a>
+            <a asp-action="Index" asp-route-categoryId="2" class="filter-products">Donne</a>
+            <a asp-action="Index" asp-route-categoryId="3" class="filter-products">Bambini</a>
         </div>
     </div>
-    <div class="row mb-4">
+</div>
+<div class="container">
+    <div class="row mb-4 gy-4 row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-3 g-sm-4">
         @foreach (var product in Model)
         {
             <div class="col">
                 <div class="card">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#product-details-@product.IdProduct">
-                        <img src="@product.Image" class="card-img-top" alt="@product.Name">
+                        <img src="@product.Image" class="card-img-top product-cards-img" alt="@product.Name">
                     </a>
                     <div class="card-body">
                         <span class="text-muted">Topwear</span>
@@ -176,3 +182,15 @@
         }
     </div>
 </div>
+@* load more  button *@
+@if (hasMore)
+{
+    <div class="text-center my-5">
+        <a asp-action="Index"
+           asp-route-page="@(currentPage + 1)"
+           asp-route-categoryId="@ViewBag.CategoryId"
+           class="footer-bg-color text-center btn btn-lg rounded-pill text-black border border-dark">
+            Load More Products
+        </a>
+    </div>
+}

@@ -21,7 +21,6 @@ namespace BW_1_S4_L1.Controllers
         [HttpPost]
         public IActionResult AddProduct(Product product, int CategoryId)
         {
-            DbHelper.AddProduct(product);
             int productId = DbHelper.AddProductAndGetId(product);
             DbHelper.AddProductToCategory(productId, CategoryId);
             return RedirectToAction("Index");

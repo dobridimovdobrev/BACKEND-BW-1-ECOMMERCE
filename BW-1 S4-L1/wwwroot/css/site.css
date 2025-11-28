@@ -25,15 +25,25 @@ a:hover {
     height: 40rem;
 }
 
+.product-cards-img {
+    object-fit: cover;
+    height: 13rem;
+    transition: transform .4s ease;
+}
+
+    .product-cards-img:hover {
+        transform: scale(1.05);
+    }
+
 nav {
     z-index: 10;
 }
 
-    nav a {
+    nav a, .filter-products {
         transition: offset .6s ease;
     }
 
-        nav a:hover {
+        nav a:hover, .filter-products:hover {
             text-decoration: underline;
             text-underline-offset: 7px;
         }
@@ -83,27 +93,7 @@ nav {
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 100px;
+        width: 130px;
         height: 3px;
         background-color: #000;
-    }
-
-.category-btn {
-    padding: 10px 30px;
-    border: 2px solid #007bff;
-    border-radius: 25px;
-    background: white;
-    color: #007bff;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-    .category-btn:hover {
-        background: #007bff;
-        color: white;
-    }
-
-    .category-btn.active {
-        background: #007bff;
-        color: white;
     }

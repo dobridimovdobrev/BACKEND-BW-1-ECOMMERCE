@@ -7,7 +7,7 @@ namespace BW_1_S4_L1.Controllers
     {
         public IActionResult Index()
         {
-            var cartItems = DbHelper.GetCartItems();
+            var cartItems = DbHelper.GetCartItemsWithProducts();
             return View(cartItems);
         }
 
