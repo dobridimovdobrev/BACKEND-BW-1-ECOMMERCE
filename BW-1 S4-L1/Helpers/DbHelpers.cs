@@ -10,11 +10,11 @@ namespace BW_1_S4_L1.Helpers
     public static class DbHelpers
     {
 
-        private const string _masterConnectionString = "Server= LAPTOP-4087GM5S\\SQLEXPRESS ; User " +
-           "Id= sa; Password=Emanuela69!  Database = master; TrustServerCertificate = true; Trusted_Connection = true ";
+        private const string _masterConnectionString = "Server= PRESTITO\\SQLEXPRESS ; User " +
+           "Id= sa; Password=sa1234  Database = master; TrustServerCertificate = true; Trusted_Connection = true ";
 
-        private const string _ShopConnectionString = "Server= LAPTOP-4087GM5S\\SQLEXPRESS ; User " +
-            "Id= sa; Password=Emanuela69! ; Database = Shop; TrustServerCertificate = true; Trusted_Connection = true ";
+        private const string _ShopConnectionString = "Server= PRESTITO\\SQLEXPRESS ; User " +
+            "Id= sa; Password=sa1234 ; Database = Shop; TrustServerCertificate = true; Trusted_Connection = true ";
 
 
         public static void InitializeDatabase()
@@ -73,7 +73,7 @@ namespace BW_1_S4_L1.Helpers
                 IdProduct INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
                 Image NVARCHAR(2000) NOT NULL,
                 Name NVARCHAR (50) NOT NULL,
-                Date DATE NOT NULL,
+                Date DATETIME NOT NULL,
                 Price DECIMAL (10,2) NOT NULL,
                 Description NVARCHAR(500) NOT NULL,
                 Quantity INT NOT NULL
@@ -147,8 +147,83 @@ namespace BW_1_S4_L1.Helpers
             }
             return products;
         }
+        public static Product getProductById(int productId)
+        {
+            using var connection = new SqlConnection(_ShopConnectionString);
+            connection.Open();
+            var commandText = """
+                SELECT * FROM Product WHERE IdProduct = @IdProduct
+                """;
+            var command = connection.CreateCommand();
+            command.CommandText = commandText;
+            command.Parameters.AddWithValue("@IdProduct", productId);
+            using var reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                var product = new Product
+                {
+                    IdProduct = reader.GetInt32(0),
+                    Image = reader.GetString(1),
+                    Name = reader.GetString(2),
+                    Date = reader.GetDateTime(3),
+                    Price = reader.GetDecimal(4),
+                    Description = reader.GetString(5),
+                    Quantity = reader.GetInt32(6)
+                };
+                return product;
+            }
+            return null;
+        }
+        public static void SaveProduct(Product product)
+        {
+            using var connection = new SqlConnection(_ShopConnectionString);
+            connection.Open();
+            var commandText = """
+                INSERT INTO Product (Image, Name, Date, Price, Description, Quantity)
+                VALUES (@Image, @Name, @Date, @Price, @Description, @Quantity)
+                """;
+            var command = connection.CreateCommand();
+            command.CommandText = commandText;
+            command.Parameters.AddWithValue("@Image", product.Image);
+            command.Parameters.AddWithValue("@Name", product.Name);
+            command.Parameters.AddWithValue("@Date", DateTime.Now);
+            command.Parameters.AddWithValue("@Price", product.Price);
+            command.Parameters.AddWithValue("@Description", product.Description);
+            command.Parameters.AddWithValue("@Quantity", product.Quantity);
+            command.ExecuteNonQuery();
+        }
 
+        public static void ModifyProduct(Product product)
+        {
+            using var connection = new SqlConnection(_ShopConnectionString);
+            connection.Open();
+            var commandText = """
+                UPDATE Product SET Image = @Image, Name = @Name, Date = @Date, Price=@Price, Description = @Description, Quantity = @Quantity
+                WHERE IdProduct = @IdProduct
+                """;
+            var command = connection.CreateCommand();
+            command.CommandText = commandText;
+            command.Parameters.AddWithValue("@IdProduct", product.IdProduct);
+            command.Parameters.AddWithValue("@Image", product.Image);
+            command.Parameters.AddWithValue("@Name", product.Name);
+            command.Parameters.AddWithValue("@Price", product.Price);
+            command.Parameters.AddWithValue("@Date", product.Date);
+            command.Parameters.AddWithValue("@Description", product.Description);
+            command.Parameters.AddWithValue("@Quantity", product.Quantity);
+            command.ExecuteNonQuery();
 
+        }
 
+        public static void DeleteProduct(int id) {
+            using var connection = new SqlConnection(_ShopConnectionString);
+            connection.Open();
+            var commandText = """
+                DELETE FROM Product WHERE IdProduct = @IdProduct
+                """;
+            var command = connection.CreateCommand();
+            command.CommandText = commandText;
+            command.Parameters.AddWithValue("@IdProduct", id);
+            command.ExecuteNonQuery();
+        }
     }
 }
