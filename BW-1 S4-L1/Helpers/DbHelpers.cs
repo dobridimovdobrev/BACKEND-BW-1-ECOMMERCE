@@ -6,10 +6,10 @@ namespace BW_1_S4_L1.Helpers
     public static class DbHelpers
     {
         private const string _masterConnectionString = "Server= LAPTOP-4087GM5S\\SQLEXPRESS ; User " +
-           "Id= sa; Password=  Database = master; TrustServerCertificate = true; Trusted_Connection = true ";
+           "Id= sa; Password=Emanuela69!  Database = master; TrustServerCertificate = true; Trusted_Connection = true ";
 
         private const string _ShopConnectionString = "Server= LAPTOP-4087GM5S\\SQLEXPRESS ; User " +
-            "Id= sa; Password= ; Database = Shop; TrustServerCertificate = true; Trusted_Connection = true ";
+            "Id= sa; Password=Emanuela69! ; Database = Shop; TrustServerCertificate = true; Trusted_Connection = true ";
         public static void InitializeDatabase()
         {
             CreateDatabase();
@@ -69,6 +69,7 @@ namespace BW_1_S4_L1.Helpers
                 Date DATE NOT NULL,
                 Price DECIMAL (10,2) NOT NULL,
                 Description NVARCHAR(500) NOT NULL
+                Quantity INT NOT NULL
                 );
 
                 CREATE TABLE Category(
