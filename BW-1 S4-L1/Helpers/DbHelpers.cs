@@ -10,11 +10,11 @@ namespace BW_1_S4_L1.Helpers
     public static class DbHelpers
     {
 
-        private const string _masterConnectionString = "Server= PRESTITO\\SQLEXPRESS ; User " +
-           "Id= sa; Password=sa1234  Database = master; TrustServerCertificate = true; Trusted_Connection = true ";
+        private const string _masterConnectionString = "Server= LAPTOP-4087GM5S\\SQLEXPRESS ; User " +
+           "Id= sa; Password=sa  Database = master; TrustServerCertificate = true; Trusted_Connection = true ";
 
-        private const string _ShopConnectionString = "Server= PRESTITO\\SQLEXPRESS ; User " +
-            "Id= sa; Password=sa1234 ; Database = Shop; TrustServerCertificate = true; Trusted_Connection = true ";
+        private const string _ShopConnectionString = "Server= LAPTOP-4087GM5S\\SQLEXPRESS ; User " +
+            "Id= sa; Password=sa ; Database = Shop; TrustServerCertificate = true; Trusted_Connection = true ";
 
 
         public static void InitializeDatabase()
@@ -214,7 +214,8 @@ namespace BW_1_S4_L1.Helpers
 
         }
 
-        public static void DeleteProduct(int id) {
+        public static void DeleteProduct(int id)
+        {
             using var connection = new SqlConnection(_ShopConnectionString);
             connection.Open();
             var commandText = """
