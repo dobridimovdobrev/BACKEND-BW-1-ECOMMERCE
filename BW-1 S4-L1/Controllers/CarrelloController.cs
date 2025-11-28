@@ -1,7 +1,7 @@
 ﻿using BW_1_S4_L1.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BACKEND_BW_1_ECOMMERCE.Controllers
+namespace BW_1_S4_L1.Controllers
 {
     public class CarrelloController : Controller
     {
@@ -16,6 +16,13 @@ namespace BACKEND_BW_1_ECOMMERCE.Controllers
         {
             DbHelper.AddToCart(productId, quantity, size);
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult Remove(int id)
+        {
+            DbHelper.RemoveFromCart(id);
+            return RedirectToAction("Index");
         }
     }
 }

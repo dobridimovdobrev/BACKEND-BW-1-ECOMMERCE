@@ -1,8 +1,10 @@
-﻿@{
+﻿@model List<Product>
+
+@{
     ViewData["Title"] = "Back office";
 }
-<div class="mt-4 d-flex justify-content-between">
-    <h1 class="fs-2 custom-font">Products List</h1>
+<div class="mt-5 d-flex justify-content-between">
+    <h1 class="fs-2 custom-font fe">Products List</h1>
     <a class="bg-btn-backOffice btn btn-lg rounded-pill text-black border border-dark" asp-controller="BackOffice" asp-action="AddProduct">Add Product</a>
 </div>
 
@@ -10,72 +12,79 @@
     <thead class="bg-thead">
         <tr>
             <th scope="col">Image</th>
-            <th scope="col">Category</th>
             <th scope="col">Product</th>
             <th scope="col">Date</th>
             <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
             <th scope="col">Description</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" alt="T-shirt" style="width:50px" /></td>
-            <td>Man wear</td>
-            <td>T-shirt</td>
-            <td>Date</td>
-            <td>30.00$</td>
-            <td>Description t-shirt</td>
-            <td>
-                <div class="d-flex gap-3">
-                    @* product details modal *@
-                    <a class="btn p-0" data-bs-toggle="modal" data-bs-target="#product-details">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
-                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
-                        </svg>
-                    </a>
-                    @* modify *@
-                    <a class="btn p-0" asp-controller="BackOffice" asp-action="Modify">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
-                        </svg>
-                    </a>
-                    @* delete *@
-                    <a class="btn p-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
-                        </svg>
-                    </a>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td><img src="@product.Image" alt="@product.Name" style="width:50px" /></td>
+                <td>@product.Name</td>
+                <td>@product.Date.ToShortDateString()</td>
+                <td>€@product.Price</td>
+                <td>@product.Quantity</td>
+                <td>@product.Description.Substring(0, Math.Min(50, product.Description.Length))...</td>
+                <td>
+                    <div class="d-flex gap-3">
+                        @* product details modal *@
+                        <a class="btn p-0" data-bs-toggle="modal" data-bs-target="#product-details-@product.IdProduct">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
+                            </svg>
+                        </a>
+                        @* modify *@
+                        <a class="btn p-0" asp-controller="BackOffice" asp-action="Modify" asp-route-id="@product.IdProduct">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                            </svg>
+                        </a>
+                        @* delete *@
+                        <form asp-action="Delete" asp-route-id="@product.IdProduct" method="post" style="display:inline;">
+                            <button type="submit" class="btn p-0" onclick="return confirm('Sei sicuro di voler eliminare questo prodotto?')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
 
-@* product details modal *@
-<div class="modal fade" id="product-details" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">T-shirt</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" alt="photo-details" style="width:100%" />
+            @* Modal per dettagli prodotto *@
+            <div class="modal fade" id="product-details-@product.IdProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">@product.Name</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="col">
-                            <h3>Title</h3>
-                            <p class="mb-3">A vibrant red shirt made from soft, breathable fabric. It features a classic crew neckline and a comfortable, tailored fit that makes it perfect for everyday wear.</p>
-                            <p class="fw-bold">Price: 30$</p>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="@product.Image" alt="@product.Name" style="width:100%" />
+                                    </div>
+                                    <div class="col">
+                                        <h3>@product.Name</h3>
+                                        <p class="mb-3">@product.Description</p>
+                                        <p class="fw-bold">Price: €@product.Price</p>
+                                        <p>Quantity: @product.Quantity</p>
+                                        <p>Date: @product.Date.ToShortDateString()</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        }
+    </tbody>
+</table>

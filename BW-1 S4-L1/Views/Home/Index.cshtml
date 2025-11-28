@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<Product>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -92,414 +94,85 @@
 </div>
 @* product cards *@
 <div class="container">
-    <div>
-        <h2 class="text-uppercase text-center fs-4 fw-bold custom-font my-5">Featured products</h2>
+    <div class="d-flex justify-content-between">
+        <h2 class="text-uppercase fs-4 fw-bold custom-font featured-title-center my-5">Featured products</h2>
+        <div class="d-flex justify-content-end gap-3">
+            <a asp-action="Index" class="category-btn">Tutti</a>
+            <a asp-action="Index" asp-route-categoryId="1" class="category-btn">Uomini</a>
+            <a asp-action="Index" asp-route-categoryId="2" class="category-btn">Donne</a>
+            <a asp-action="Index" asp-route-categoryId="3" class="category-btn">Bambini</a>
+        </div>
     </div>
     <div class="row mb-4">
-        @* card1 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
+        @foreach (var product in Model)
+        {
+            <div class="col">
+                <div class="card">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#product-details-@product.IdProduct">
+                        <img src="@product.Image" class="card-img-top" alt="@product.Name">
+                    </a>
+                    <div class="card-body">
+                        <span class="text-muted">Topwear</span>
+                        <h6 class="card-title font-wight-500">@product.Name</h6>
+                        <p class="fw-bold">€@product.Price</p>
 
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
+                        <form asp-controller="Carrello" asp-action="Add" method="post">
+                            <input type="hidden" name="productId" value="@product.IdProduct" />
+
+                            <div class="d-flex gap-3">
+                                <div>
+                                    <label for="quantity" class="d-block text-muted">Quantity:</label>
+                                    <select id="quantity" name="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="size" class="d-block text-muted">Size:</label>
+                                    <select id="size" name="size">
+                                        <option value="XS">XS</option>
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
+                        </form>
                     </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
                 </div>
             </div>
-        </div>
-        @* card2 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
 
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+            @* Modal  *@
+            <div class="modal fade" id="product-details-@product.IdProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">@product.Name</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
-                </div>
-            </div>
-        </div>
-        @* card3 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
-
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
-                </div>
-            </div>
-        </div>
-        @* card4 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
-
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
-                </div>
-            </div>
-        </div>
-        @* card5 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
-
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        @* card6 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
-
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
-                </div>
-            </div>
-        </div>
-
-        @* card5 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
-
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
-                </div>
-            </div>
-        </div>
-
-        @* card5 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
-
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
-                </div>
-            </div>
-        </div>
-
-        @* card5 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
-
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
-                </div>
-            </div>
-        </div>
-
-        @* card5 *@
-        <div class="col">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" class="card-img-top" alt="white shirt">
-                </a>
-
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">White Polo Shirt</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="product-details" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">T-shirt</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" alt="photo-details" style="width:100%" />
-                        </div>
-                        <div class="col">
-                            <h3>Title</h3>
-                            <p class="mb-3">A vibrant red shirt made from soft, breathable fabric. It features a classic crew neckline and a comfortable, tailored fit that makes it perfect for everyday wear.</p>
-                            <p class="fw-bold">Price 30$</p>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="@product.Image" alt="@product.Name" style="width:100%" />
+                                    </div>
+                                    <div class="col">
+                                        <h3>@product.Name</h3>
+                                        <p class="mb-3">@product.Description</p>
+                                        <p class="fw-bold">€@product.Price</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </div>

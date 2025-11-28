@@ -70,3 +70,40 @@ nav {
 .bg-btn-backOffice {
     background-color: #D8AB00;
 }
+
+
+.featured-title-center {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+    .featured-title-center::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background-color: #000;
+    }
+
+.category-btn {
+    padding: 10px 30px;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    background: white;
+    color: #007bff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+    .category-btn:hover {
+        background: #007bff;
+        color: white;
+    }
+
+    .category-btn.active {
+        background: #007bff;
+        color: white;
+    }

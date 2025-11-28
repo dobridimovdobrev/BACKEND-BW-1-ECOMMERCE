@@ -1,30 +1,38 @@
-﻿@{
+﻿@model Product
+
+@{
     ViewData["Title"] = "Modify product";
 }
-<form class="mt-5">
+
+<h1 class="fs-2 custom-font mt-5">Modify Product</h1>
+
+<form class="mt-5" asp-action="Modify" asp-controller="BackOffice" method="post">
+    <input type="hidden" name="IdProduct" value="@Model.IdProduct" />
+    <input type="hidden" name="Date" value="@Model.Date" />
+
+    <div class="mb-3">
+        <label class="form-label fw-bold fs-4">Product Name</label>
+        <input type="text" class="form-control" name="Name" value="@Model.Name" placeholder="T-shirt" required>
+    </div>
     <div class="mb-3">
         <label class="form-label fw-bold fs-4">URL Image</label>
-        <input type="url" class="form-control" name="image_url" placeholder="http://..." required>
+        <input type="url" class="form-control" name="Image" value="@Model.Image" placeholder="http://..." required>
     </div>
     <div class="mb-3">
-        <label class="form-label fw-bold fs-4">Category</label>
-        <input type="text" class="form-control" placeholder="Category">
-    </div>
-    <div class="mb-3 ">
-        <label class="form-label fw-bold fs-4">Article</label>
-        <input type="text" class="form-control" placeholder="Article">
-    </div>
-    <div class="mb-3 ">
-        <label class="form-label fw-bold fs-4">Date</label>
-        <input type="date" class="form-control">
-    </div>
-    <div class="mb-3 ">
         <label class="form-label fw-bold fs-4">Price</label>
-        <input type="number" class="form-control" step=".01">
+        <input type="number" class="form-control" name="Price" step="0.01" value="@Model.Price" placeholder="25.00" required>
     </div>
-    <div class="mb-3 ">
+    <div class="mb-3">
+        <label class="form-label fw-bold fs-4">Quantity</label>
+        <input type="number" class="form-control" name="Quantity" value="@Model.Quantity" placeholder="10" required>
+    </div>
+    <div class="mb-3">
         <label class="form-label fw-bold fs-4">Description</label>
-        <input type="text" class="form-control" placeholder="Description">
+        <textarea class="form-control" name="Description" rows="4" required>@Model.Description</textarea>
     </div>
-    <button type="submit" class="bg-btn-backOffice btn  btn-lg rounded-pill text-black border border-dark my-3">Modify Product</button>
+
+    <div class="d-flex gap-3">
+        <button type="submit" class="bg-btn-backOffice btn btn-lg rounded-pill text-black border border-dark my-3">Save Changes</button>
+        <a asp-action="Index" class="btn btn-lg btn-secondary rounded-pill my-3">Cancel</a>
+    </div>
 </form>

@@ -238,7 +238,79 @@ namespace BW_1_S4_L1.Helpers
             }
         }
 
+        // prendi prodotti per categoria
+        public static List<Product> GetProductsByCategory(int categoryId)
+        {
+            var products = new List<Product>();
 
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var commandText = @"
+        SELECT p.* 
+        FROM Product p
+        INNER JOIN Product_Category pc ON p.IdProduct = pc.IdProductFK
+        WHERE pc.IdCategoryFK = @categoryId";
+
+            var command = new SqlCommand(commandText, connection);
+            command.Parameters.AddWithValue("@categoryId", categoryId);
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                products.Add(new Product
+                {
+                    IdProduct = reader.GetInt32(0),
+                    Name = reader.GetString(1),
+                    Description = reader.GetString(2),
+                    Price = reader.GetDecimal(3),
+                    Image = reader.GetString(4),
+                    Quantity = reader.GetInt32(5),
+                    Date = reader.GetDateTime(6)
+                });
+            }
+
+            return products;
+        }
+
+        public static void AddProductToCategory(int productId, int categoryId)
+        {
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var commandText = @"
+        INSERT INTO Product_Category (IdProductFK, IdCategoryFK) 
+        VALUES (@productId, @categoryId)";
+
+            var command = new SqlCommand(commandText, connection);
+            command.Parameters.AddWithValue("@productId", productId);
+            command.Parameters.AddWithValue("@categoryId", categoryId);
+
+            command.ExecuteNonQuery();
+        }
+
+        // modifica per ritornare id
+        public static int AddProductAndGetId(Product product)
+        {
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var commandText = @"
+        INSERT INTO Product (Name, Description, Price, Image, Quantity, Date) 
+        OUTPUT INSERTED.IdProduct
+        VALUES (@name, @desc, @price, @image, @qty, @date)";
+
+            var command = new SqlCommand(commandText, connection);
+            command.Parameters.AddWithValue("@name", product.Name);
+            command.Parameters.AddWithValue("@desc", product.Description);
+            command.Parameters.AddWithValue("@price", product.Price);
+            command.Parameters.AddWithValue("@image", product.Image);
+            command.Parameters.AddWithValue("@qty", product.Quantity);
+            command.Parameters.AddWithValue("@date", DateTime.Now);
+
+            return (int)command.ExecuteScalar();
+        }
 
         //lista tutti prodotti
 
@@ -320,6 +392,46 @@ namespace BW_1_S4_L1.Helpers
             command.ExecuteNonQuery();
         }
 
+        //aggiornare prodotto
+
+        public static void ModifyProduct(Product product)
+        {
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var commandText = @"
+        UPDATE Product 
+        SET Name = @name, 
+            Description = @desc, 
+            Price = @price, 
+            Image = @image, 
+            Quantity = @qty 
+        WHERE IdProduct = @id";
+
+            var command = new SqlCommand(commandText, connection);
+            command.Parameters.AddWithValue("@id", product.IdProduct);
+            command.Parameters.AddWithValue("@name", product.Name);
+            command.Parameters.AddWithValue("@desc", product.Description);
+            command.Parameters.AddWithValue("@price", product.Price);
+            command.Parameters.AddWithValue("@image", product.Image);
+            command.Parameters.AddWithValue("@qty", product.Quantity);
+
+            command.ExecuteNonQuery();
+        }
+
+        //elimina prodotto
+
+        public static void DeleteProduct(int id)
+        {
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var command = new SqlCommand("DELETE FROM Product WHERE IdProduct = @id", connection);
+            command.Parameters.AddWithValue("@id", id);
+
+            command.ExecuteNonQuery();
+        }
+
         // visualizza categorie
         public static List<Category> GetAllCategories()
         {
@@ -388,6 +500,68 @@ namespace BW_1_S4_L1.Helpers
             }
 
             return cartItems;
+        }
+
+        public static List<Carrello> GetCartItemsWithProducts()
+        {
+            var cartItems = new List<Carrello>();
+
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var commandText = @"
+        SELECT c.IdCarrello, c.IdProductFK, c.Quantity, c.Size, c.Date,
+               p.IdProduct, p.Name, p.Description, p.Price, p.Image, p.Quantity as Stock, p.Date as ProductDate
+        FROM Carrello c
+        INNER JOIN Product p ON c.IdProductFK = p.IdProduct";
+
+            var command = new SqlCommand(commandText, connection);
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                cartItems.Add(new Carrello
+                {
+                    IdCarrello = reader.GetInt32(0),
+                    IdProductFK = reader.GetInt32(1),
+                    Quantity = reader.GetInt32(2),
+                    Size = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    Date = reader.GetDateTime(4),
+                    Product = new Product
+                    {
+                        IdProduct = reader.GetInt32(5),
+                        Name = reader.GetString(6),
+                        Description = reader.GetString(7),
+                        Price = reader.GetDecimal(8),
+                        Image = reader.GetString(9),
+                        Quantity = reader.GetInt32(10),
+                        Date = reader.GetDateTime(11)
+                    }
+                });
+            }
+
+            return cartItems;
+        }
+
+        //elimina dal carrello
+
+        public static void RemoveFromCart(int cartId)
+        {
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var command = new SqlCommand("DELETE FROM Carrello WHERE IdCarrello = @id", connection);
+            command.Parameters.AddWithValue("@id", cartId);
+
+            try
+            {
+                command.ExecuteNonQuery();
+                Console.WriteLine("Prodotto rimosso dal carrello!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Errore: {ex.Message}");
+            }
         }
 
     }
