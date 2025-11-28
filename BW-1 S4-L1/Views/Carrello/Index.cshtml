@@ -4,12 +4,12 @@
     ViewData["Title"] = "Carrello";
 }
 
-<h1 class="fs-2 custom-font my-5 text-uppercase">Your Carrello</h1>
+<h1 class="fs-2 custom-font my-5 text-uppercase">Carrello</h1>
 
 @if (Model.Count == 0)
 {
     <div class="container text-center my-5">
-        <h3>Il tuo carrello è vuoto</h3>
+        <h3>Il carrello e vuoto</h3>
         <a asp-controller="Home" asp-action="Index" class="btn btn-primary mt-3">Continua lo shopping</a>
     </div>
 }

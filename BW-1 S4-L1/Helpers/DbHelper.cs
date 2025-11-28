@@ -290,7 +290,7 @@ namespace BW_1_S4_L1.Helpers
             command.ExecuteNonQuery();
         }
 
-        // modifica per ritornare id
+        // creare prodotto e prendere/restituire id
         public static int AddProductAndGetId(Product product)
         {
             using var connection = new SqlConnection(_shopConnectionString);
@@ -457,7 +457,7 @@ namespace BW_1_S4_L1.Helpers
 
         //aggiungi al carrello
 
-        public static void AddToCart(int productId, int quantity, string? size)
+        public static void AddToCart(int productId, int quantity, string size)
         {
             using var connection = new SqlConnection(_shopConnectionString);
             connection.Open();
@@ -469,7 +469,7 @@ namespace BW_1_S4_L1.Helpers
             var command = new SqlCommand(commandText, connection);
             command.Parameters.AddWithValue("@productId", productId);
             command.Parameters.AddWithValue("@qty", quantity);
-            command.Parameters.AddWithValue("@size", size ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@size", size);
             command.Parameters.AddWithValue("@date", DateTime.Now);
 
             command.ExecuteNonQuery();
@@ -494,14 +494,14 @@ namespace BW_1_S4_L1.Helpers
                     IdCarrello = reader.GetInt32(0),
                     IdProductFK = reader.GetInt32(1),
                     Quantity = reader.GetInt32(2),
-                    Size = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    Size = reader.GetString(3),
                     Date = reader.GetDateTime(4)
                 });
             }
 
             return cartItems;
         }
-
+        // visualizza carrello + prodotti
         public static List<Carrello> GetCartItemsWithProducts()
         {
             var cartItems = new List<Carrello>();
@@ -525,7 +525,7 @@ namespace BW_1_S4_L1.Helpers
                     IdCarrello = reader.GetInt32(0),
                     IdProductFK = reader.GetInt32(1),
                     Quantity = reader.GetInt32(2),
-                    Size = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    Size = reader.GetString(3),
                     Date = reader.GetDateTime(4),
                     Product = new Product
                     {
@@ -544,7 +544,6 @@ namespace BW_1_S4_L1.Helpers
         }
 
         //elimina dal carrello
-
         public static void RemoveFromCart(int cartId)
         {
             using var connection = new SqlConnection(_shopConnectionString);

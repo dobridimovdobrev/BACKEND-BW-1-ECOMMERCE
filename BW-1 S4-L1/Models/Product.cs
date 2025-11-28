@@ -9,10 +9,10 @@
         public string Image { get; set; }
         public DateTime Date { get; set; }
         public int Quantity { get; set; }
-        
+
         //relazioni molti a motli
-        public List <Category> Categories { get; set; }
-        public List <Carrello> Carrellos { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<Carrello> Carrelli { get; set; }
 
     }
 }
