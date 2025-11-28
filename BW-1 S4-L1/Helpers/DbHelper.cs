@@ -240,11 +240,155 @@ namespace BW_1_S4_L1.Helpers
 
 
 
+        //lista tutti prodotti
 
+        public static List<Product> GetAllProducts()
+        {
+            var products = new List<Product>();
 
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
 
+            var command = new SqlCommand("SELECT * FROM Product", connection);
+            using var reader = command.ExecuteReader();
 
+            while (reader.Read())
+            {
+                products.Add(new Product
+                {
+                    IdProduct = reader.GetInt32(0),
+                    Name = reader.GetString(1),
+                    Description = reader.GetString(2),
+                    Price = reader.GetDecimal(3),
+                    Image = reader.GetString(4),
+                    Quantity = reader.GetInt32(5),
+                    Date = reader.GetDateTime(6)
+                });
+            }
 
+            return products;
+        }
+
+        // visualizza prodotto by Id
+
+        public static Product? GetProductById(int id)
+        {
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var command = new SqlCommand("SELECT * FROM Product WHERE IdProduct = @id", connection);
+            command.Parameters.AddWithValue("@id", id);
+
+            using var reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                return new Product
+                {
+                    IdProduct = reader.GetInt32(0),
+                    Name = reader.GetString(1),
+                    Description = reader.GetString(2),
+                    Price = reader.GetDecimal(3),
+                    Image = reader.GetString(4),
+                    Quantity = reader.GetInt32(5),
+                    Date = reader.GetDateTime(6)
+                };
+            }
+
+            return null;
+        }
+
+        //creare un prodotto
+
+        public static void AddProduct(Product product)
+        {
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var commandText = @"
+            INSERT INTO Product (Name, Description, Price, Image, Quantity, Date) 
+            VALUES (@name, @desc, @price, @image, @qty, @date)";
+
+            var command = new SqlCommand(commandText, connection);
+            command.Parameters.AddWithValue("@name", product.Name);
+            command.Parameters.AddWithValue("@desc", product.Description);
+            command.Parameters.AddWithValue("@price", product.Price);
+            command.Parameters.AddWithValue("@image", product.Image);
+            command.Parameters.AddWithValue("@qty", product.Quantity);
+            command.Parameters.AddWithValue("@date", DateTime.Now);
+
+            command.ExecuteNonQuery();
+        }
+
+        // visualizza categorie
+        public static List<Category> GetAllCategories()
+        {
+            var categories = new List<Category>();
+
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var command = new SqlCommand("SELECT * FROM Category", connection);
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                categories.Add(new Category
+                {
+                    IdCategory = reader.GetInt32(0),
+                    Name = reader.GetString(1)
+                });
+            }
+
+            return categories;
+        }
+
+        //aggiungi al carrello
+
+        public static void AddToCart(int productId, int quantity, string? size)
+        {
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var commandText = @"
+        INSERT INTO Carrello (IdProductFK, Quantity, Size, Date) 
+        VALUES (@productId, @qty, @size, @date)";
+
+            var command = new SqlCommand(commandText, connection);
+            command.Parameters.AddWithValue("@productId", productId);
+            command.Parameters.AddWithValue("@qty", quantity);
+            command.Parameters.AddWithValue("@size", size ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@date", DateTime.Now);
+
+            command.ExecuteNonQuery();
+        }
+
+        // visualizza carrello 
+
+        public static List<Carrello> GetCartItems()
+        {
+            var cartItems = new List<Carrello>();
+
+            using var connection = new SqlConnection(_shopConnectionString);
+            connection.Open();
+
+            var command = new SqlCommand("SELECT * FROM Carrello", connection);
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                cartItems.Add(new Carrello
+                {
+                    IdCarrello = reader.GetInt32(0),
+                    IdProductFK = reader.GetInt32(1),
+                    Quantity = reader.GetInt32(2),
+                    Size = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    Date = reader.GetDateTime(4)
+                });
+            }
+
+            return cartItems;
+        }
 
     }
 }
