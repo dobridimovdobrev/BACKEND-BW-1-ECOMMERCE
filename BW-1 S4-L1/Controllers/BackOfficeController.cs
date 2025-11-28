@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BW_1_S4_L1.Helpers;
+using BW_1_S4_L1.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BACKEND_BW_1_ECOMMERCE.Controllers
 {
@@ -6,20 +8,46 @@ namespace BACKEND_BW_1_ECOMMERCE.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var products = DbHelpers.GetProducts();
+            return View(products);
         }
 
         public IActionResult AddProduct()
         {
             return View();
         }
-
-        public IActionResult Modify()
+        [HttpGet]
+        public IActionResult Modify(int id)
         {
-            return View();
+            var product = DbHelpers.getProductById(id);
+            return View(product);
         }
 
 
+        [HttpPost]
+        public IActionResult Modify(Product product)
+        {
+            DbHelpers.ModifyProduct(product);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult AddProduct(Product product)
+        {
+            DbHelpers.SaveProduct(product);
+
+            return RedirectToAction("Index");
+        }
+        public IActionResult Delete()
+        {
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            DbHelpers.DeleteProduct(id);
+            return RedirectToAction("Index");
+        }
 
 
 
