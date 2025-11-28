@@ -5,7 +5,8 @@
 
 # dotenv files
 BW-1 S4-L1/.env
-
+BW-1 S4-L1/bin
+BW-1 S4-L1/obj
 # User-specific files
 BW-1 S4-L1/*.rsuser
 BW-1 S4-L1/*.suo

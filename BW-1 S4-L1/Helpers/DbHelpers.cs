@@ -125,7 +125,9 @@ namespace BW_1_S4_L1.Helpers
             var products = new List<Product>();
             using var connection = new SqlConnection(_ShopConnectionString);
             connection.Open();
-            var commandText = "SELECT * FROM Product";
+            var commandText = """
+                SELECT * FROM Product 
+                """;
             var command = connection.CreateCommand();
             command.CommandText = commandText;
             using var reader = command.ExecuteReader();

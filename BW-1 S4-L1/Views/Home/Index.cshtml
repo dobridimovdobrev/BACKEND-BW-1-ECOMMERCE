@@ -2,7 +2,8 @@
 @{
     ViewData["Title"] = "Home Page";
     var productList = DbHelpers.GetProducts();
-    
+
+
 }
 
 @* 
@@ -102,81 +103,83 @@
         @* card1 *@
         @foreach (Product product in productList)
         {
-                    <div class="col-3">
-            <div class="card">
-                <!-- Button trigger modal -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#product-details">
-                    <img src="@product.Image" class="card-img-top" alt="white shirt">
-                </a>
+            <div class="col-3">
+                <div class="card">
+                    <!-- Button trigger modal -->
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#product-details-@product.IdProduct">
+                        <img src="@product.Image" class="card-img-top" alt="white shirt">
+                    </a>
 
-                <div class="card-body">
-                    <span class=" text-muted">Topwear</span>
-                    <h6 class="card-title font-wight-500">@product.Name</h6>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <label for="quantity" class=" d-block text-muted">Quantity:</label>
-                            <select id="quantity" name="quantity">
+                    <div class="card-body">
+                        <span class=" text-muted">Topwear</span>
+                        <h6 class="card-title font-wight-500">@product.Name</h6>
+                        <div class="d-flex gap-3">
+                            <div>
+                                <label for="quantity" class=" d-block text-muted">Quantity:</label>
+                                <select id="quantity" name="quantity">
                                     @for (var i = 1; i <= product.Quantity; i++)
                                     {
-                                      <option value="@i">@i</option>
+                                        <option value="@i">@i</option>
                                     }
-                            </select>
-                        </div>
-                        <div>
-                            <label for="size" class="d-block text-muted">Size:</label>
-                            <select id="size" name="size">
-                                <option value="1">XS</option>
-                                <option value="2">S</option>
-                                <option value="3">M</option>
-                                <option value="4">L</option>
-                                <option value="5">XL</option>
-                            </select>
-                        </div>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="size" class="d-block text-muted">Size:</label>
+                                <select id="size" name="size">
+                                    <option value="1">XS</option>
+                                    <option value="2">S</option>
+                                    <option value="3">M</option>
+                                    <option value="4">L</option>
+                                    <option value="5">XL</option>
+                                </select>
+                            </div>
 
                             <div class="fw-bold">€@product.Price</div>
+                        </div>
+                        <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
                     </div>
-                    <button type="submit" class="w-100 btn btn-secondary text-uppercase border-0 mt-3">Add to cart</button>
                 </div>
             </div>
-        </div>
+
+            <!-- Modal -->
+
+            <div class="modal fade" id="product-details-@product.IdProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">@product.Name</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src=@product.Image alt="photo-details" style="width:100%" />
+                                    </div>
+                                    <div class="col">
+                                        <h3>@product.Name</h3>
+                                        <p class="mb-3">@product.Description</p>
+                                        <p class="fw-bold">€ @product.Price</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-primary">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         }
 
 
     </div>
 
     <div class="row">
-
     </div>
 </div>
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="product-details" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">T-shirt</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <img src="https://codervent.com/shopingo/demo/shopingo_V2/assets/images/products/01.png" alt="photo-details" style="width:100%" />
-                        </div>
-                        <div class="col">
-                            <h3>Title</h3>
-                            <p class="mb-3">A vibrant red shirt made from soft, breathable fabric. It features a classic crew neckline and a comfortable, tailored fit that makes it perfect for everyday wear.</p>
-                            <p class="fw-bold">Price</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-primary">Add to cart</button>
-            </div>
-        </div>
-    </div>
-</div>
