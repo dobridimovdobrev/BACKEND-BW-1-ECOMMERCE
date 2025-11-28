@@ -1,4 +1,8 @@
-﻿using BW_1_S4_L1.Helpers.Enums;
+
+using BW_1_S4_L1.Helpers.Enums;
+
+using BW_1_S4_L1.Models;
+
 using Microsoft.Data.SqlClient;
 
 namespace BW_1_S4_L1.Helpers
@@ -67,11 +71,11 @@ namespace BW_1_S4_L1.Helpers
             var commandText = """
                 CREATE TABLE Product (
                 IdProduct INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
-                Img NVARCHAR(2000) NOT NULL,
+                Image NVARCHAR(2000) NOT NULL,
                 Name NVARCHAR (50) NOT NULL,
                 Date DATE NOT NULL,
                 Price DECIMAL (10,2) NOT NULL,
-                Description NVARCHAR(500) NOT NULL
+                Description NVARCHAR(500) NOT NULL,
                 Quantity INT NOT NULL
                 );
 
@@ -114,6 +118,32 @@ namespace BW_1_S4_L1.Helpers
                 Environment.Exit(1);
             }
 
+        }
+
+        public static List<Product> GetProducts()
+        {
+            var products = new List<Product>();
+            using var connection = new SqlConnection(_ShopConnectionString);
+            connection.Open();
+            var commandText = "SELECT * FROM Product";
+            var command = connection.CreateCommand();
+            command.CommandText = commandText;
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                var product = new Product
+                {
+                    IdProduct = reader.GetInt32(0),
+                    Image = reader.GetString(1),
+                    Name = reader.GetString(2),
+                    Date = reader.GetDateTime(3),
+                    Price = reader.GetDecimal(4),
+                    Description = reader.GetString(5),
+                    Quantity = reader.GetInt32(6)
+                };
+                products.Add(product);
+            }
+            return products;
         }
 
 
